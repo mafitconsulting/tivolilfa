@@ -1,0 +1,19 @@
+{
+  "Gemfile": "36c376f27539ded2a321b2bd432e843b",
+  "README.md": "c0151371ec31318c913c0ee9202d1307",
+  "Rakefile": "f4692851f7e9afcdb02721319e3f18b9",
+  "examples/init.pp": "e41a3a51b6a548a6e698e7be49a750db",
+  "manifests/file.pp": "17cf58aaf2d8e745a962cab7be071da2",
+  "manifests/init.pp": "60978a5673814aceb65d45bbd64021f3",
+  "manifests/install.pp": "81e53dd26456c1702594cb9c2610355d",
+  "manifests/params.pp": "429f64caa854745da6286c7daa80578a",
+  "metadata.json": "1fa26aa4952e7f0e517a58d89a40ace1",
+  "spec/classes/init_spec.rb": "625c047c575c6211424eaeeded3d7e44",
+  "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
+  "templates/itm6_lfa_base.conf.erb": "eea484de9bb582b3653779f549f9c8bf",
+  "templates/itm6_lfa_base.fmt.erb": "15386c64ac6b0fb62c5a30b4ef3e921b",
+  "templates/silent_config.conf.erb": "9822dd9534b67fc30e906f7db154c7de",
+  "templates/silent_install.conf.erb": "d507986433bd864873bb7a05e1550bdc",
+  "tests/init.pp": "d83f038a951809b8f7860d0a273190f5",
+  "tests/mount.pp": "82d02e59e7307fb070168b3adf83869d"
+}

@@ -1,0 +1,15 @@
+REGEX AllRecords
+(.*)
+hostname LABEL
+-file FILENAME
+RemoteHost DEFAULT
+logpath PRINTF("%s",file)
+text $1
+env DEV
+app application_name
+cluster cluster_name
+module module_name
+instance instance_name
+END
+
+
