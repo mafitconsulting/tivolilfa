@@ -1,8 +1,9 @@
-# Class to configure an instance of the log file agent
 class tivolilfa::config(
   String $itm_home       = $::tivolilfa::itm_home,
   String $silent_config  = $::tivolilfa::silent_config,
   String $lfa_instance   = $::tivolilfa::lfa_instance,
+  String $extsrcdir      = $::tivolilfa::ext_src_dir,
+  String $srcdir         = $::tivolilfa::source_dir,
 ) {
 
   exec { 'instance_cfg':
@@ -16,4 +17,11 @@ class tivolilfa::config(
     unless  => 'ps -ed |grep kloagent',
     require => Exec['instance_cfg'],
   }
+
+  exec {'umount_nfsshare':
+    path      => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:/bin',
+    command   => "umount ${srcdir}",
+    onlyif    => "test -d ${extsrcdir}",
+    logoutput => true,
+    }
 }

@@ -1,4 +1,3 @@
-#Performs prereq package install, mounts and installsis of logfile agent
 class tivolilfa::install(
   String $mount_point    = $::tivolilfa::mount_point,
   String $source_dir     = $::tivolilfa::source_dir,
@@ -29,11 +28,11 @@ class tivolilfa::install(
   }
 
   exec { 'untarball':
-    cwd         => $source_dir,
-    command     => "tar xf ${lfa_tar}",
-    path        => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin',
-    timeout     => 1800,
-    refreshonly => true,
+    cwd     => $source_dir,
+    command => "tar xf ${lfa_tar}",
+    path    => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin',
+    timeout => 1800,
+    unless  => "test -f ${ext_src_dir}/install.sh"
   }
 
   exec { "/bin/ksh install.sh -h ${itm_home} -p /tmp/${silent_install}":
@@ -42,3 +41,4 @@ class tivolilfa::install(
     unless => "test -f ${itm_home}/bin/cinfo",
   }
 }
+
