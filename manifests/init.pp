@@ -20,7 +20,7 @@ class tivolilfa (
   class { '::ssh::config': }
 
   # Dependency cycle  
-  class { '::tivolilfa::file': } ->
-  -> class { '::tivolilfa::install': } ->
-  -> class { '::tivolilfa::config': } ->
+  class { '::tivolilfa::file': }
+  -> class { '::tivolilfa::install': }
+  -> class { '::tivolilfa::config': }
 }

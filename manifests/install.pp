@@ -10,8 +10,8 @@ class tivolilfa::install(
 
 ) {
 
-  package { $prereqs: 
-    ensure => 'installed' 
+  package { $prereqs:
+    ensure => 'installed'
   }
 
   file { $source_dir:
@@ -29,7 +29,7 @@ class tivolilfa::install(
   }
 
   exec { 'untarball':
-    cwd         => "${source_dir}",
+    cwd         => $source_dir,
     command     => "tar xf ${lfa_tar}",
     path        => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin',
     timeout     => 1800,
@@ -37,7 +37,7 @@ class tivolilfa::install(
   }
 
   exec { "/bin/ksh install.sh -h ${itm_home} -p /tmp/${silent_install}":
-    cwd    => "${ext_src_dir}",
+    cwd    => $ext_src_dir,
     path   => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin',
     unless => "test -f ${itm_home}/bin/cinfo",
   }
