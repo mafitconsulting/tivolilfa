@@ -1,0 +1,23 @@
+{
+  "name": "mafitconsulting-tivolilfa",
+  "version": "0.1.4",
+  "author": "Mark Fieldhouse",
+  "summary": "Installs Tivoli Logfile Agent",
+  "license": "Apache-2.0",
+  "source": "https://github.com/mafitconsulting/tivolilfa.git",
+  "project_page": "https://forge.puppetlabs.com/mafitconsulting/tivolilfa",
+  "issues_url": "https://github.com/mafitconsulting/tivolilfa/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": "function"
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6.0",
+        "7.0"
+      ]
+    }
+  ]
+}
