@@ -11,7 +11,7 @@
 # Copyright
 # ---------
 #
-# Copyright 2016 mafitconsulting
+# Copyright 2017 mafitconsulting
 #
 class tivolilfa (
   String $lfa_fmt_template,
@@ -26,13 +26,9 @@ class tivolilfa (
   String $mount_point,
   String $itm_home,
   String $ext_src_dir,
-  Array $prereqs,
+  Array[String] $prereqs,
 ) {
-  class { '::ssh::file': }
-  class { '::ssh::install': }
-  class { '::ssh::config': }
 
-  # Dependency cycle  
   class { '::tivolilfa::file': }
   -> class { '::tivolilfa::install': }
   -> class { '::tivolilfa::config': }

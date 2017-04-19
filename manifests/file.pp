@@ -1,9 +1,9 @@
 # Sets up relevant files
 class tivolilfa::file (
-  String $itm6fmt        = $tivolilfa::lfa_fmt_template,
-  String $itm6conf       = $tivolilfa::lfa_config_template,
-  String $silent_install = $tivolilfa::silent_install,
-  String $silent_config  = $tivolilfa::silent_config,
+  String $itm6fmt        = $::tivolilfa::lfa_fmt_template,
+  String $itm6conf       = $::tivolilfa::lfa_config_template,
+  String $silent_install = $::tivolilfa::silent_install,
+  String $silent_config  = $::tivolilfa::silent_config,
 ) {
 
   file {['/opt/IBM','/opt/IBM/ITM']:

@@ -10,7 +10,7 @@ class tivolilfa::install(
 ) {
 
   package { $prereqs:
-    ensure => 'installed'
+    ensure => 'installed',
   }
 
   file { $source_dir:

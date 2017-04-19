@@ -1,8 +1,7 @@
-function tivolilfa::data {
-  case $facts['os']['family'] {
+function tivolilfa::data() {
+  $os_params = case $facts['os']['family'] {
     'RedHat': {
-      $os_params = {
-        'tivolilfa::lfa_config_template' => 'itm6_lfa_base.conf',
+        {'tivolilfa::lfa_config_template' => 'itm6_lfa_base.conf',
         'tivolilfa::lfa_fmt_template'    => 'itm6_lfa_base.fmt',
         'tivolilfa::tmp_dir'             => '/tmp',
         'tivolilfa::source_dir'          => '/var/nfsshare',
@@ -15,8 +14,7 @@ function tivolilfa::data {
         'tivolilfa::mount_point'         => '192.168.38.159:/var/lfaimage',
         'tivolilfa::itm_home'            => '/opt/IBM/ITM',
         'tivolilfa::ext_src_dir'         => '/var/nfsshare/KLO_DVD-201605101532-61311',
-        'tivolilfa::prereqs'             => [ 'ksh', 'stdcpp_64_package', 'stdcpp_32_package', 'compat_32_package', 'gcc_32_package']
-      }
+        'tivolilfa::prereqs'             => [ 'ksh', 'stdcpp_64_package', 'stdcpp_32_package', 'compat_32_package', 'gcc_32_package']}
     }
     default: {
       fail ("${facts['operatingsystem']} is not supported!")
