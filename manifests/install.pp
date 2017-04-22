@@ -18,7 +18,7 @@ class tivolilfa::install(
     before => Exec['untarball'],
   }
 
-  mount { 'mount_nfs':
+  mount { '$source_dir':
     ensure   => mounted,
     device  =>  $mount_point,
     fstype   => 'nfs',
