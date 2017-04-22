@@ -11,7 +11,7 @@ function tivolilfa::data() {
         'tivolilfa::silent_config'       => 'silent_config.txt',
         'tivolilfa::lfa_instance'        => 'BASE',
         'tivolilfa::log_sources'         => '/tmp/test.log,/tmp/testing.log',
-        'tivolilfa::mount_point'         => '192.168.38.159:/var/lfaimage',
+        'tivolilfa::mount_point'         => 'fieldhousem6.mylabserver.com:/var/lfaimage',
         'tivolilfa::itm_home'            => '/opt/IBM/ITM',
         'tivolilfa::ext_src_dir'         => '/var/nfsshare/KLO_DVD-201605101532-61311',
         'tivolilfa::prereqs'             => [ 'ksh', 'stdcpp_64_package', 'stdcpp_32_package', 'compat_32_package', 'gcc_32_package']}

@@ -15,6 +15,7 @@
 #
 class tivolilfa (
   String $lfa_fmt_template,
+  String $lfa_config_template,
   String $tmp_dir,
   String $source_dir,
   String $lfa_tar,

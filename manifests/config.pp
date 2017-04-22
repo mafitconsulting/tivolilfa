@@ -12,7 +12,7 @@ class tivolilfa::config(
     unless  => "test -f ${itm_home}/config/lo_${lfa_instance}.config",
   }
 
-  exec { "/opt/IBM/ITM/bin/itmcmd agent -o ${tivolilfa::params::lfa_instance} start lo":
+  exec { "/opt/IBM/ITM/bin/itmcmd agent -o ${lfa_instance} start lo":
     path    => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin',
     unless  => 'ps -ed |grep kloagent',
     require => Exec['instance_cfg'],
