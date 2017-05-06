@@ -1,9 +1,12 @@
+# Tivoli Logfile agent config class, configures a base instance,
+# starts the agent then attempts to umount the share.
 class tivolilfa::config(
-  String $itm_home       = $::tivolilfa::itm_home,
-  String $silent_config  = $::tivolilfa::silent_config,
-  String $lfa_instance   = $::tivolilfa::lfa_instance,
-  String $extsrcdir      = $::tivolilfa::ext_src_dir,
-  String $srcdir         = $::tivolilfa::source_dir,
+  String $itm_home      = $::tivolilfa::itm_home,
+  String $mount_point   = $::tivolilfa::mount_point,
+  String $silent_config = $::tivolilfa::silent_config,
+  String $lfa_instance  = $::tivolilfa::lfa_instance,
+  String $extsrcdir     = $::tivolilfa::ext_src_dir,
+  String $srcdir        = $::tivolilfa::source_dir,
 ) {
 
   exec { 'instance_cfg':
@@ -18,10 +21,11 @@ class tivolilfa::config(
     require => Exec['instance_cfg'],
   }
 
-  exec {'umount_nfsshare':
-    path      => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:/bin',
-    command   => "umount ${srcdir}",
-    onlyif    => "test -d ${extsrcdir}",
-    logoutput => true,
-    }
+  mount { 'umount_nfs':
+    ensure  => unmounted,
+    name    => $srcdir,
+    device  => $mount_point,
+    fstype  => 'nfs',
+    require => Exec['mount_nfs'],
+  }
 }

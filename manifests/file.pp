@@ -4,6 +4,8 @@ class tivolilfa::file (
   String $itm6conf       = $::tivolilfa::lfa_config_template,
   String $silent_install = $::tivolilfa::silent_install,
   String $silent_config  = $::tivolilfa::silent_config,
+  String $tems_server    = $::tivolilfa::tems_server,
+  String $log_sources    = $::tivolilfa::log_sources,
 ) {
 
   file {['/opt/IBM','/opt/IBM/ITM']:
