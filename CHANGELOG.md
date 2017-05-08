@@ -9,3 +9,4 @@ Clean ups of code.
 - Replaced exec unmount with Mount resource type
 - Replaced params class with puppet function data provider for defaults
 - Parameter update with data types
+- Removed deprecated "tests" directory
