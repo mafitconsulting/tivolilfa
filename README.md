@@ -22,10 +22,11 @@ regular expressions. These strings allow the agent to filter the log data accord
 patterns in the format file, and submit only the interesting data to an event consumer.
 
 The puppet module installation requires the presence of the 6.3.0-TIV-ITM_LFA-FP0001.tar to be
-accessible from a NFS mount configurable in the params class as per user environment.
+accessible from a NFS mount configurable in the puppet function data provider as per user
+environment.
 
-The Tivoli Enterprise Monitoring server addresss (FQDN or IP Address) must be configured
-as the $tems_server in the params class as per the users environment.
+The Tivoli Enterprise Monitoring server address (FQDN or IP Address) must be configured
+as the $tems_server in the puppet function data provider as per the users environment.
 
 The format and configuration files are templated in puppet and can be customised as per
 users environment
@@ -50,11 +51,11 @@ The following pre-requisite packages will be installed.
 
 
 
-Once all pre-reqs are in place, the module attempts to mount the NFS filesystem to a mount point configured in the params class.
-Once mounted, it will untar the image and perform a silent installation and configuration of the
-agent using templated puppet silent install and config files. The configuration of the agent is based on one install, the instance
-name of defined in the params class as $lfa_instance. Log Sources are also defined in the params class under $log_sources are are
-set using ruby in the templates for the config file.
+Once all pre-reqs are in place, the module attempts to mount the NFS filesystem to a mount point configured in the puppet function 
+data provider.  Once mounted, it will untar the image and perform a silent installation and configuration of the
+agent using templated puppet silent install and config files. The configuration of the agent is based on one install. The instance
+name is defined in the puppet function data provider as $lfa_instance. Log Sources are also defined in the puppet function data provider 
+under $log_sources and set using ruby expression in the templates for the config file.
 
 * silent install file       => silent\_install.conf.erb
 * silent configuration file => silent\_config.conf.erb
@@ -66,7 +67,7 @@ Once installed successfully, it will start the agent up (kloagent)
 and unmount the NFS filesystem.
 
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements 
 
 For the module to install successfully, Security-Enhanced Linux control must be
 disabled in the /etc/selinux/config file
@@ -81,7 +82,7 @@ The firewall may require adjustment on the node. See ITM Port Usage in Reference
 
 ## Usage
 
-To apply this module, assign the node the class 'tivolilfa' in the PE console, then initiate a Puppet agent run with 'puppet agent -t' run from the node.
+To apply this module, assign a node the class 'tivolilfa' in the PE console, then initiate a Puppet agent run with 'puppet agent -t' run from the node.
 
 The following paramaters must be defined in the params class as per users environment
 
@@ -97,10 +98,14 @@ The following paramaters must be defined in the params class as per users enviro
 
 Classes
 
-* ::tivolifa
+* ::tivolilfa
 * ::tivolilfa::files
-* ::tivolilfa::params
 * ::tivolilfa::install
+* ::tivolilfa::config
+
+Functions
+
+* ::tivolilfa::data
 
 ITM Port Usage - Agents In a default configuration, agents use the following sockets,
 1. Connection to a TEMS port 1918. The communications string defines the protocols used. The CT_CMSLIST environment variable names the servers where a TEMS is running. The initial connection at port 1918 gives access to the Location Broker data and thus indirectly to the TEMS. However from the standpoint of configuration, this is a socket to a 1918 listening port on the server running the TEMS.
