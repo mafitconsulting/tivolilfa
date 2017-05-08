@@ -14,7 +14,8 @@ function tivolilfa::data() {
         'tivolilfa::mount_point'         => 'fieldhousem6.mylabserver.com:/var/lfaimage',
         'tivolilfa::itm_home'            => '/opt/IBM/ITM',
         'tivolilfa::ext_src_dir'         => '/var/nfsshare/KLO_DVD-201605101532-61311',
-        'tivolilfa::prereqs'             => [ 'ksh','libstdc++.x86_64','libstdc++.i686','compat-libstdc++-33','compat-libstdc++-33-3.2.3-72.el7.i686','libgcc.i686']}
+        'tivolilfa::prereqs'             => [ 'ksh','libstdc++.x86_64','libstdc++.i686','compat-libstdc++-33',
+                                            'compat-libstdc++-33-3.2.3-72.el7.i686','libgcc.i686']}
     }
     default: {
       fail ("${facts['operatingsystem']} is not supported!")
