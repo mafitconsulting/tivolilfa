@@ -38,9 +38,10 @@ class tivolilfa::install(
   }
 
   exec { "/bin/ksh install.sh -h ${itm_home} -p /tmp/${silent_install}":
-    cwd    => $ext_src_dir,
-    path   => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin',
-    unless => "test -f ${itm_home}/bin/cinfo",
+    cwd     => $ext_src_dir,
+    path    => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin',
+    timeout => 1800
+    unless  => "test -f ${itm_home}/bin/cinfo",
   }
 }
 
