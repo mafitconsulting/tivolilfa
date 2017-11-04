@@ -29,3 +29,4 @@ class tivolilfa::config(
     require => Exec['mount_nfs'],
   }
 }
+

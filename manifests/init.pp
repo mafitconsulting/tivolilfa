@@ -11,62 +11,6 @@
 # Copyright
 # ---------
 #
-<<<<<<< HEAD
-# Copyright 2016 mafitconsulting
-#
-class tivolilfa (
-
-) inherits tivolilfa::params {
-
-	 package { 'ksh':
-
-             name   => $tivolilfa::params::ksh,
-             ensure => present,
-
-          }
-
-          package { 'stdcpp_64_package':
-
-             name   => $tivolilfa::params::stdcpp_64_package,
-             ensure => present,
-
-          }
-
-          package { 'stdcpp_32_package':
-
-             name   => $tivolilfa::params::stdcpp_32_package,
-             ensure => present,
-
-          }
-
-	  package {'compat_64_libs':
-             name   => $tivolilfa::params::compat_64_libs,
-             ensure => present,
-
-          }
-
-          package { 'compat_32_libs':
-
-             name   => $tivolilfa::params::compat_32_libs,
-             ensure => present,
-
-          }
-
-          package { 'gcc_32_package':
-
-             name   => $tivolilfa::params::gcc_32_package,
-             ensure => present,
-
-          }
-
-
-
-  anchor { 'tivolilfa::begin': } ->
-  class { '::tivolilfa::file': } ->
-  class { '::tivolilfa::install': } ->
-  anchor { 'tivolilfa::end': }
-
-=======
 # Copyright 2017 mafitconsulting
 #
 class tivolilfa (
@@ -89,5 +33,4 @@ class tivolilfa (
   class { '::tivolilfa::file': }
   -> class { '::tivolilfa::install': }
   -> class { '::tivolilfa::config': }
->>>>>>> 72db440f269242b73b5d1640b6b7a5b921d97a0f
 }
