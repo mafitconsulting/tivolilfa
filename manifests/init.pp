@@ -11,6 +11,7 @@
 # Copyright
 # ---------
 #
+<<<<<<< HEAD
 # Copyright 2016 mafitconsulting
 #
 class tivolilfa (
@@ -65,4 +66,28 @@ class tivolilfa (
   class { '::tivolilfa::install': } ->
   anchor { 'tivolilfa::end': }
 
+=======
+# Copyright 2017 mafitconsulting
+#
+class tivolilfa (
+  String $lfa_fmt_template,
+  String $lfa_config_template,
+  String $tmp_dir,
+  String $source_dir,
+  String $lfa_tar,
+  String $tems_server,
+  String $silent_install,
+  String $silent_config,
+  String $lfa_instance,
+  String $log_sources,
+  String $mount_point,
+  String $itm_home,
+  String $ext_src_dir,
+  Array[String] $prereqs,
+) {
+
+  class { '::tivolilfa::file': }
+  -> class { '::tivolilfa::install': }
+  -> class { '::tivolilfa::config': }
+>>>>>>> 72db440f269242b73b5d1640b6b7a5b921d97a0f
 }
